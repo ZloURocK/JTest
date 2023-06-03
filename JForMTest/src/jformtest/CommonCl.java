@@ -17,6 +17,13 @@ public static int findIndex(int[] arr, int element) {
     return -1; // если элемент не найден
 }
 
+//Обертка над выводом в консоль, что бы можно было отключать (Логи)
+public static void  Logs(String t, int flag) {
+   if (flag==1)  
+    System.out.println(t);
+}
+
+
 //Сумма чисел в массиве
 public static int sumArray(int[] arr) {
     int Res=0;
@@ -26,7 +33,7 @@ public static int sumArray(int[] arr) {
    return Res; 
 }
 
-   public static double retNumber(int[] a1, int a2[])
+   public static double retNumber(int[] a1, int a2[], int flg)
    {
        int res=0;
        int LenA1 = a1.length;
@@ -45,11 +52,13 @@ public static int sumArray(int[] arr) {
               int j3=0; //запоминаем, ДО какого индекса заполнять
               for (int i=0;i<LenA1;i++) 
               {
-                System.out.println("ЦИКЛ 1, Прогон: "+i); 
+                Logs("ЦИКЛ 1, Прогон: "+i,flg);   
+                //System.out.println("ЦИКЛ 1, Прогон: "+i); 
                  //Считаем сумму массива (оно же и является конечной итерацией для внутреннего цикла)
                 j3=j3+a2[i];    
                 for (int j=j2;j<j3;j++){
-                    System.out.println("j= "+j); 
+                    Logs("j= "+j,flg);
+                    //System.out.println("j= "+j); 
                     
                      a3[j] = a1[i];
                      j2++;
@@ -57,7 +66,8 @@ public static int sumArray(int[] arr) {
               } 
               
               for (int i=0;i<SumA2;i++)
-                  System.out.println("Итоговый массив a3["+i+"] = "+a3[i]);
+                  Logs("Итоговый массив a3["+i+"] = "+a3[i],flg);   
+                 // System.out.println("Итоговый массив a3["+i+"] = "+a3[i]);
       
        //Случайный индекс из итогового массива      
        int rnd = new Random().nextInt(a3.length);
